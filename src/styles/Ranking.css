@@ -1,0 +1,21 @@
+.ranking {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .ranking h2 {
+    margin-bottom: 10px;
+  }
+  
+  .ranking ol {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .ranking li {
+    background-color: rgb(255, 192, 70);
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  

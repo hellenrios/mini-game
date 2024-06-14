@@ -1,0 +1,40 @@
+.button {  
+    display: block;  
+    width: 200px;  
+    margin-bottom: 14px;
+    line-height: 40px;  
+    font-size: 18px;  
+    text-decoration: none;  
+    color: #333;  
+    border-radius: 0.5rem;
+    letter-spacing: 2px;  
+    text-align: center;  
+    position: relative;  
+    cursor: pointer;  
+    transition: all .35s;
+}
+      
+.button p {  
+    position: relative;  
+    z-index: 2;  
+}
+          
+.button:after {  
+    position: absolute;  
+    content: "";  
+    top: 0;  
+    left: 0;  
+    width: 0;  
+    height: 100%;  
+    background: rgb(255, 192, 70);;  
+    transition: all .40s;
+}
+          
+.button:hover {  
+    color: #12161f;
+}
+          
+.button:hover:after {  
+    width: 100%;
+}
+  
