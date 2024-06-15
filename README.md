@@ -12,7 +12,7 @@ Link do minigame: [TypeRush](https://mini-game-livid.vercel.app/)
 
 ## Como rodar o projeto ✅
 
-Para rodar o projeto em seu ambiente local, abra o terminal e coloque o seguinte comandos:
+Para rodar o projeto em seu ambiente local, abra o terminal, certifique-se de que está na pasta correspondente ao projeto e coloque o seguinte comando:
 
 ```
 npm install
@@ -23,4 +23,4 @@ Depois que todas as dependências forem instaladas, coloque o seguinte comando:
 ```
 npm run dev
 ```
-Após rodar esses comandos, será disponibilizado no seu termina um link do localhost que abrirá o projeto localmente. Acesse este link e divirta-se!
+Após rodar esses comandos, será disponibilizado no seu terminal um link do localhost que abrirá o projeto localmente. Acesse este link e divirta-se!
