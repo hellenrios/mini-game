@@ -1,6 +1,6 @@
 # TypeRush - Minigame 
 
-Este projeto é um mini-game desenvolvido para o processo seletivo da Cidade Alta e consiste em um mini-game interativo utilizando React, onde o objetivo do jogador é seguir uma sequência aleatória de teclas o mais rápido possível.
+Este projeto foi desenvolvido para o processo seletivo da Cidade Alta e consiste em um mini-game interativo utilizando React, onde o objetivo do jogador é seguir uma sequência aleatória de teclas o mais rápido possível.
 
 Link do minigame: [TypeRush](https://mini-game-livid.vercel.app/)
 
