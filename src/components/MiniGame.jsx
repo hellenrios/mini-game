@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useSpring, animated } from '@react-spring/web';
+import React, { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
 import LevelSelectionModal from './LevelSelectionModal';
 import Button from './Button';
 import Sequence from './Sequence';
@@ -13,6 +13,9 @@ import '../styles/MiniGame.css';
 const MiniGame = () => {
   const [showLevelModal, setShowLevelModal] = useState(true);
   const [selectedLevel, setSelectedLevel] = useState('');
+  const [showMiniGame, setShowMiniGame] = useState(false);
+  const [showCloseButton, setShowCloseButton] = useState(false);
+  const mainRef = useRef(null);
 
   const {
     sequence,
@@ -25,6 +28,12 @@ const MiniGame = () => {
     startGame,
     resetGame,
   } = useMiniGameLogic(selectedLevel);
+
+  useEffect(() => {
+    if (showMiniGame) {
+      gsap.fromTo(mainRef.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.8 });
+    }
+  }, [showMiniGame]);
 
   useEffect(() => {
     if (selectedLevel) {
@@ -40,44 +49,63 @@ const MiniGame = () => {
 
   const handleLevelSelect = (level) => {
     setSelectedLevel(level);
-    setShowLevelModal(false);
+    gsap.to('.level-selection-modal', {
+      opacity: 0,
+      y: -50,
+      duration: 0.3,
+      onComplete: () => {
+        setShowLevelModal(false);
+        setShowMiniGame(true);
+      }
+    });
   };
 
   const handleOpenLevelModal = () => {
     setShowLevelModal(true);
+    setShowMiniGame(false);
+    setShowCloseButton(true);
   };
 
   const handleCloseLevelModal = () => {
-    setShowLevelModal(false);
+    gsap.to('.level-selection-modal', {
+      opacity: 0,
+      y: -50,
+      duration: 0.3,
+      onComplete: () => {
+        setShowLevelModal(false);
+        setShowMiniGame(true);  // Mantém o mini-game visível
+      }
+    });
   };
 
-  const fadeProps = useSpring({ opacity: gameActive ? 1 : 0 });
-
   return (
-    <section className="mini-game">
+    <div>
       {showLevelModal && (
         <LevelSelectionModal
           onSelectLevel={handleLevelSelect}
           onClose={handleCloseLevelModal}
+          isOpen={showLevelModal}
+          showCloseButton={showCloseButton}
         />
       )}
-      <h1 className="mini-game__title">TypeRush</h1>
-      <div className="mini-game__buttons">
-        <Button onClick={resetGame}>Reset</Button>
-        <Button onClick={handleOpenLevelModal}>Nível</Button>
-      </div>
-
-      <div className="mini-game__level">Nível: {selectedLevel}</div>
-      <div className="mini-game__score">Score: {score}</div>
-      <Sequence sequence={sequence} currentKeyIndex={currentKeyIndex} errorIndex={errorIndex} />
-      <ProgressBar timeLeft={timeLeft} totalTime={levels[selectedLevel]} />
-      <Feedback feedback={feedback} />
-      <animated.div style={fadeProps}></animated.div>
-
-      <div className='w-full' >
-        <Ranking />
-      </div>
-    </section>    
+      {showMiniGame && (
+        <section className="mini-game" ref={mainRef}>
+          <h1 className="mini-game__title">TypeRush</h1>
+          <div className="mini-game__buttons">
+            <Button onClick={resetGame}>Reset</Button>
+            <Button onClick={handleOpenLevelModal}>Nível</Button>
+          </div>
+          <div className="mini-game__level">Nível: {selectedLevel}</div>
+          <div className="mini-game__score">Score: {score}</div>
+          <Sequence sequence={sequence} currentKeyIndex={currentKeyIndex} errorIndex={errorIndex} />
+          <ProgressBar timeLeft={timeLeft} totalTime={levels[selectedLevel]} />
+          <Feedback feedback={feedback} />
+          <div className='w-full'>
+            <Ranking />
+          </div>
+        </section>
+      )}
+    </div>
   );
 };
 

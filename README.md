@@ -1,9 +1,25 @@
-# React + Vite
+# TypeRush - Minigame 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é um mini-game desenvolvido para o processo seletivo da Cidade Alta e consiste em um mini-game interativo utilizando React, onde o objetivo do jogador é seguir uma sequência aleatória de teclas o mais rápido possível.
 
-Currently, two official plugins are available:
+Link do deploy na Vercel: [TypeRush]()
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# mini-game
+### Tecnologias Utilizadas
+
+
+* [Vite](https://vitejs.dev/guide/) + [React](https://react.dev/)
+
+
+## Como rodar o projeto ✅
+
+Para rodar o projeto em seu ambiente local, abra o terminal e coloque o seguinte comandos:
+
+```
+npm install
+```
+
+Depois que todas as dependências forem instaladas, coloque o seguinte comando:
+
+```
+npm run dev
+```

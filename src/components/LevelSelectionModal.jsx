@@ -1,11 +1,33 @@
+import React, { useRef, useEffect } from 'react';
+import gsap from 'gsap';
 import Button from './Button';
 import { gameTexts } from '../constants';
 import '../styles/LevelSelectionModal.css';
 
-const LevelSelectionModal = ({ onSelectLevel, onClose, isOpen }) => (
-    <div className={`level-selection-modal ${isOpen ? 'open' : 'closed'}`}>
+const LevelSelectionModal = ({ onSelectLevel, onClose, isOpen, showCloseButton }) => {
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      gsap.to(modalRef.current, { opacity: 1, y: 0, duration: 0.3, display: 'flex' });
+    } else {
+      gsap.to(modalRef.current, {
+        opacity: 0,
+        y: -50,
+        duration: 0.3,
+        onComplete: () => {
+          modalRef.current.style.display = 'none';
+        }
+      });
+    }
+  }, [isOpen]);
+
+  return (
+    <div ref={modalRef} className="level-selection-modal">
       <div className="level-selection-modal__content">
-        <button className="level-selection-modal__close" onClick={onClose}>X</button>
+        {showCloseButton && (
+          <button className="level-selection-modal__close" onClick={onClose}>X</button>
+        )}
         <h1 className="level-selection-modal__game-title">{gameTexts.title}</h1>
         <h2 className="level-selection-modal__title">{gameTexts.levelSelect}</h2>
         <div className="level-selection-modal__buttons">
@@ -27,5 +49,6 @@ const LevelSelectionModal = ({ onSelectLevel, onClose, isOpen }) => (
       </div>
     </div>
   );
+};
 
 export default LevelSelectionModal;
