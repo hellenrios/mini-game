@@ -1,19 +1,29 @@
+.mini-game-container {
+  width: 100%;
+}
+
 .mini-game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     color: #fff;
     background-color: #282c34;
+    margin: 0 auto;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     max-width: 600px;
-    margin: 0 auto;
     position: relative;
     z-index: 1;
   }
   
   .mini-game__title {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-family: "Streetbomber", sans-serif;
+    font-size: 4rem;
+    font-weight: 100;
+    margin: 0 0 10px 0;
     text-align: center;
   }
   
@@ -21,7 +31,11 @@
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+  }
+
+  .mini-game__buttons .button {
+    width: 150px;
   }
   
   .mini-game__score {
@@ -30,37 +44,16 @@
     color: rgb(255, 192, 70);
   }
   
-  .mini-game__sequence {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 20px 0;
-  }
-  
-  .mini-game__progress-bar {
-    background-color: #ddd;
-    border-radius: 5px;
-    overflow: hidden;
-    height: 20px;
-    width: 100%;
-    margin: 20px 0;
-  }
-  
-  .mini-game__progress {
-    background-color: rgb(255, 192, 70);
-    height: 100%;
-    transition: width 0.5s;
-  }
-  
   .mini-game__time-left,
   .mini-game__feedback {
     margin: 10px 0;
   }
   
   .mini-game__level {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 6px;
+    font-size: 14px;
+    text-transform: uppercase;
   }
   
   .mini-game__score {
@@ -72,17 +65,6 @@
   @media (max-width: 600px) {
     .mini-game {
       padding: 10px;
-      max-width: 90%;
-    }
-  
-    .mini-game__sequence-item {
-      font-size: 18px;
-      padding: 8px;
-      margin: 4px;
-    }
-  
-    .mini-game__progress-bar {
-      height: 15px;
     }
   }
   

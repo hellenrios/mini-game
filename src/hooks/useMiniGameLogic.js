@@ -12,9 +12,9 @@ const generateRandomSequence = (length) => {
 };
 
 export const levels = {
-  easy: 30,
-  intermediate: 15,
-  hard: 10,
+  Fácil: 30,
+  Intermediário: 15,
+  Difícil: 8,
 };
 
 export const useMiniGameLogic = (selectedLevel) => {
@@ -35,7 +35,7 @@ export const useMiniGameLogic = (selectedLevel) => {
 
   const startGame = useCallback(() => {
     if (!selectedLevel || !levels[selectedLevel]) {
-      console.error("Invalid level selected:", selectedLevel);
+      console.error("Nível inválido:", selectedLevel);
       return;
     }
     const newSequence = generateRandomSequence(10);
@@ -49,7 +49,7 @@ export const useMiniGameLogic = (selectedLevel) => {
 
   const resetGame = useCallback(() => {
     if (!selectedLevel || !levels[selectedLevel]) {
-      console.error("Invalid level selected:", selectedLevel);
+      console.error("Nível inválido:", selectedLevel);
       return;
     }
     const newSequence = generateRandomSequence(10);
@@ -98,7 +98,7 @@ export const useMiniGameLogic = (selectedLevel) => {
       setTimeLeft((prevTime) => {
         if (prevTime <= 1) {
           setGameActive(false);
-          setFeedback("Tempo esgotado! Game over.");
+          setFeedback("Tempo esgotado!");
           playSound("/sounds/timeup.mp3");
           clearInterval(timer);
           saveHighScore(score);

@@ -2,7 +2,7 @@
     display: block;  
     width: 200px;  
     margin-bottom: 14px;
-    line-height: 40px;  
+    line-height: 4px;  
     font-size: 18px;  
     text-decoration: none;  
     color: #333;  
@@ -28,6 +28,7 @@
     height: 100%;  
     background: rgb(255, 192, 70);;  
     transition: all .40s;
+    border-radius: 0.3rem;
 }
           
 .button:hover {  
@@ -37,4 +38,16 @@
 .button:hover:after {  
     width: 100%;
 }
+
+@media (max-width: 600px) {
+    .button {
+        line-height: 34px;
+        width: 54%;
+    }
+
+    .button p {
+        font-size: 16px;
+        margin: 0 10px;
+    }
+  }
   

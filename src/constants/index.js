@@ -22,7 +22,7 @@ export const gameTexts = {
     },
     {
       label: "Difícil",
-      description: "Você tem 10 segundos para digitar a sequência.",
+      description: "Você tem 8 segundos para digitar a sequência.",
     },
   ],
   explanationClosing:
@@ -43,6 +43,6 @@ export const socialMedia = [
   {
     id: "social-media-3",
     icon: mail,
-    link: "https://www.twitter.com/",
+    link: "mailto:hellenrioss@gmail.com",
   },
 ];

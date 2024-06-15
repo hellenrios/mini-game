@@ -6,7 +6,8 @@ const Ranking = () => {
 
   return (
     <div className="ranking">
-      <h2>High Scores</h2>
+    <hr className="ranking__separator" />
+      <h2>High Scores:</h2>
       {highScores.length > 0 ? (
         <ol>
           {highScores.map((score, index) => (
@@ -14,7 +15,7 @@ const Ranking = () => {
           ))}
         </ol>
       ) : (
-        <p>No high scores yet.</p>
+        <p>Ainda não há nenhuma pontuação.</p>
       )}
     </div>
   );

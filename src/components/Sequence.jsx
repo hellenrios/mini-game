@@ -1,7 +1,6 @@
 import '../styles/Sequence.css';
 
-const Sequence = ({ sequence, currentKeyIndex, errorIndex }) => {
-  return (
+const Sequence = ({ sequence, currentKeyIndex, errorIndex }) => (
     <div className="sequence">
       {sequence.map((char, index) => (
         <div className="sequence__item-container" key={index}>
@@ -15,6 +14,5 @@ const Sequence = ({ sequence, currentKeyIndex, errorIndex }) => {
       ))}
     </div>
   );
-};
 
 export default Sequence;
